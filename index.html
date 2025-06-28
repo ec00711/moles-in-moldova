@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="vdiewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Moles in Moldova</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,29 +12,30 @@
       padding: 0;
     }
 
-    /* Footer with version */
-    div.footer {
-      height: 30px;
-    }
-
-    p.version {
-      text-align: center;
-      color: #666;
-    }
-
-    /* Canvas takes up rest of space */
+    /* Canvas takes up as much space as possible */
     div.canvas {
       position: relative;
-      max-width: 80%;
-      max-height: 90%;
+      height: 100dvb;
       aspect-ratio: 2048 / 1267;
       margin: 0 auto;
-      padding: 20px;
       background-color: #fff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Small version number box */
+    p.version {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      margin: 0;
+      text-align: center;
+      font-size: 10pt;
+      color: #ababab;
+      background-color: rgb(228, 228, 228);
     }
 
     img.map {
+      position: absolute;
       width: 100%;
       height: 100%;
     }
@@ -59,30 +60,19 @@
 
     button.location1 { top: 20%; left: 30%; }
     button.location2 { top: 50%; left: 50%; }
-    button.location3 { top: 100%; left: 100%; }
-
-    table, td, th {
-      border: 1px solid;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
+    button.location3 { top: 80%; left: 90%; }
    
   </style>
 </head>
 <body>
 
   <div class="canvas">
-      <img class="map" src="assets/worldMap.png">
-      <button class="location location1">1</button>
-      <button class="location location2">2</button>
-      <button class="location location3">3</button>
-  </div>
-  
-  <div class="footer">
-    <p class="version">1.0.1</p>
+    <img class="map" src="assets/worldMap.png">
+    <button class="location location1">1</button>
+    <button class="location location2">2</button>
+    <button class="location location3">3</button>
+    
+    <p class="version">Version 1.0.1</p>
   </div>
   
   <script src="js/script.js"></script>
