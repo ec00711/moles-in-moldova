@@ -1,5 +1,3 @@
-document.getElementById("version").innerHTML = "v1.0.0";
-
 const data_array = [];
 
 function AddItem(things, place, dateStr){
@@ -18,4 +16,4 @@ data_array.forEach((entry) => {
         tableHTML += "<td>" + entry.place + "</td>";
         tableHTML += "<td>" + entry.date + "</td></tr>";
         });
-document.getElementById("data").innerHTML = tableHTML;
+//document.getElementById("data").innerHTML = tableHTML;
