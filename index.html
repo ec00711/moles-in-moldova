@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="vdiewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    table, td, th {
+      border: 1px solid;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    p {
+      color: #666;
+      text-align: center;
+    }
+
+    .myClass {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+   
+  </style>
+</head>
+<body>
+  <p id="version"></p>
+
+  <div class="myClass">
+      <p id="tempDisplay"></p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Things</th>
+            <th>Place</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="data">
+
+        </tbody>
+      </table>
+  </div>
+  
+  <script src="js/script.js"></script>
+</body>
+</html>
