@@ -11,8 +11,7 @@
       margin: 0;
       padding: 0;
     }
-
-    /* Canvas takes up as much space as possible */
+    
     div.canvas {
       position: relative;
       max-height: 100dvh;
@@ -22,7 +21,6 @@
       background-color: #fff;
     }
 
-    /* Small version number box */
     p.version {
       position: absolute;
       top: 0;
@@ -58,11 +56,6 @@
       margin-left: -30px;
       margin-top: -30px;
     }
-
-    #location1 { top: 20%; left: 30%; }
-    #location2 { top: 50%; left: 50%; }
-    #location3 { top: 80%; left: 90%; }
-    #location4 { top: 30%; left: 70%; }
    
   </style>
 </head>
@@ -71,10 +64,7 @@
   <div class="canvas">
     <img class="map" src="assets/worldMap.png">
     <div id="locations">
-      <img class="location" id="location1" src="assets/location.svg"></button>
-      <img class="location" id="location2" src="assets/location.svg"></button>
-      <img class="location" id="location3" src="assets/location.svg"></button>
-      <img class="location" id="location4" src="assets/location.svg"></button>
+      <!--Populated from js-->
     </div>
     
     <p class="version">Version 1.0.1</p>
