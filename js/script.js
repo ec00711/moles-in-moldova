@@ -1,12 +1,25 @@
 const data_array = [];
 
-function AddItem(things, place, dateStr, leftPC, topPC){
-    data_array.push({things: things, place: place, date: new Date(dateStr), left: leftPC, top: topPC});
+function printMousePos(event) {
+    var map = document.getElementById("world-map").getBoundingClientRect();
+    
+    let x = (event.clientX - map.left) / map.width;
+    let y = (event.clientY - map.top) / map.height;
+    
+    console.log("Click X: " + x + " Y: " + y);
 }
 
+function AddItem(things, place, dateStr, x, y){
+    data_array.push({things: things, place: place, date: new Date(dateStr), left: x*100, top: y*100});
+}
+
+// Set up mouse listener for debug
+document.addEventListener("click", printMousePos);
+
 // Generate data
-AddItem("moles", "Moldova", "2025-06-06", 54, 38);
-AddItem("dogs", "Denmark", "2025-07-07", 48.75, 33);
+AddItem("moles", "Moldova", "2025-06-06", 0.54, 0.38);
+AddItem("dogs", "Denmark", "2025-07-07", 0.4875, 0.33);
+AddItem("monkeys", "Madagascar", "2025-06-29", 0.607804, 0.71772);
 
 // Add locations
 data_array.forEach((entry) => {
@@ -19,3 +32,4 @@ data_array.forEach((entry) => {
 
     document.getElementById("locations").appendChild(loc);
 });
+
