@@ -1,4 +1,5 @@
 const data_array = [];
+var popup = document.getElementById("popup");
 
 function printMousePos(event) {
     var map = document.getElementById("world-map").getBoundingClientRect();
@@ -13,8 +14,22 @@ function AddItem(things, place, who, dateStr, x, y){
     data_array.push({things: things, place: place, who: who, date: new Date(dateStr), left: x*100, top: y*100});
 }
 
+function showPopup(event){
+    popup.classList.add("show");
+}
+
+function hidePopup(event){
+    popup.classList.remove("show");
+}
+
 // Set up mouse listener for debug
 document.addEventListener("click", printMousePos);
+
+// Close pop up when map or X are clicked
+var xButton = document.getElementById("close-button");
+xButton.addEventListener("click", hidePopup);
+var worldMap = document.getElementById("world-map");
+worldMap.addEventListener("click", hidePopup);
 
 // Generate data
 AddItem("raccoons", "Russia", "F", "2025-06-15", 0.700, 0.270);
@@ -48,6 +63,7 @@ data_array.forEach((entry) => {
     loc.style.top = entry.top + "%";
     loc.style.left = entry.left + "%";
 
+    loc.addEventListener("click", showPopup);
+
     document.getElementById("locations").appendChild(loc);
 });
-

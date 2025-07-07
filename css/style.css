@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+div.canvas {
+    position: relative;
+    max-height: 100dvh;
+    max-width: 100dvw;
+    aspect-ratio: 2048 / 1267;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+/* Version box */
+p.version {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    margin: 0;
+    text-align: center;
+    font-size: 10pt;
+    color: #ababab;
+    background-color: rgb(228, 228, 228);
+}
+
+/* Map */
+img.map {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Location markers */
+img.location {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    margin-left: -15px;
+    margin-top: -30px;
+    cursor: pointer;
+    transition-duration: 500ms;
+}
+
+img.location:hover{
+    width: 40px;
+    height: 40px;
+    margin-left: -20px;
+    margin-top: -40px;
+}
+
+/* Pop up */
+#popup {
+    position: absolute;
+    width: 35%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    border: 3px solid green;
+    background-color: lightgrey;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 500ms ease-in, visibility 0ms linear 250ms;
+}
+
+#popup.show {
+    visibility: visible;
+    opacity: 80%;
+}
+
+#close-button {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: 0;
+    padding: 5px;
+}
+
+#popup-text {
+    text-align: center;
+    padding: 30px;
+    margin: 0;
+    font-size: 14pt;
+}
+
+#date-text {
+    text-align: right;
+    padding: 10px;
+    margin: 0;
+    font-size: 12pt;
+    font-style: italic;
+}
