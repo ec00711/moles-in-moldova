@@ -14,8 +14,12 @@ function AddItem(things, place, who, dateStr, x, y){
     data_array.push({things: things, place: place, who: who, date: new Date(dateStr), left: x*100, top: y*100});
 }
 
-function showPopup(event){
+function showPopup(event, entry){
     popup.classList.add("show");
+    document.getElementById("popup-text").innerText =
+        "I love you more than all the " + entry.things + " in " + entry.place;
+    document.getElementById("date-text").innerText =
+        entry.who + ", " + entry.date.toLocaleDateString("en-GB");
 }
 
 function hidePopup(event){
@@ -63,7 +67,7 @@ data_array.forEach((entry) => {
     loc.style.top = entry.top + "%";
     loc.style.left = entry.left + "%";
 
-    loc.addEventListener("click", showPopup);
+    loc.addEventListener("click", (evt) => showPopup(evt, entry));
 
     document.getElementById("locations").appendChild(loc);
 });
