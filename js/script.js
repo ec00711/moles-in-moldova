@@ -57,6 +57,14 @@ AddItem("morris dancers", "Morpork", "F", "2025-06-26", 0.4, 1.1);
 AddItem("donkeys", "Damascus", "E", "2025-06-26", 0.5670, 0.4854);
 AddItem("harfoots", "Hobbiton", "E", "2025-06-27", 0.6, 1.1);
 AddItem("hobbits", "Hobbiton", "F", "2025-06-27", 0.65, 1.1);
+AddItem("hamsters", "Honduras", "F", "2025-06-28", 0.1976, 0.5791);
+AddItem("sheep", "San Francisco", "E", "2025-06-28", 0.0983, 0.4390);
+AddItem("dinosaurs", "Denmark", "F", "2025-06-29", 0.4869, 0.3461);
+AddItem("baby bats", "Brazil", "E", "2025-06-29", 0.3060, 0.7062);
+AddItem("jaberwockies", "Jerusalem", "E", "2025-06-30", 0.5629, 0.4944);
+AddItem("Cheshire cats", "Cheltenham", "F", "2025-06-30", 0.4546, 0.3757);
+AddItem("owls", "Owl-bania", "E", "2025-07-13", 0.5184, 0.4421);
+AddItem("monarchs", "Monaco", "F", "2025-07-13", 0.4808, 0.4266);
 
 // Add locations
 data_array.forEach((entry) => {
