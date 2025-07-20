@@ -6,61 +6,50 @@ body {
 }
 
 div.canvas {
-    position: relative;
-    max-height: 100dvh;
-    max-width: 100dvw;
-    aspect-ratio: 2048 / 1267;
-    margin: 0 auto;
-    background-color: #fff;
-}
-
-/* Version box */
-p.version {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 100px;
-    margin: 0;
-    text-align: center;
-    font-size: 10pt;
-    color: #ababab;
-    background-color: rgb(228, 228, 228);
+    min-height: 100dvh;
+    min-width: 100dvw;
+    aspect-ratio: 2048 / 1267;
+    margin: auto;
+    background-color: #fff;
 }
 
 /* Map */
 img.map {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    position: relative;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 /* Location markers */
+/* Sizes done in dvh to keep same scaling when we zoom */
 img.location {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    margin-left: -15px;
-    margin-top: -30px;
+    width: 3dvh;
+    height: 3dvh;
+    margin-left: -1.5dvh;
+    margin-top: -3dvh;
     cursor: pointer;
     transition-duration: 500ms;
 }
 
 img.location:hover{
-    width: 40px;
-    height: 40px;
-    margin-left: -20px;
-    margin-top: -40px;
+    width: 4dvh;
+    height: 4dvh;
+    margin-left: -2dvh;
+    margin-top: -4dvh;
 }
 
 /* Pop up */
+/* Sizes done in dvh to keep same scaling when we zoom */
 #popup {
-    position: absolute;
-    width: 35%;
+    position: fixed;
+    width: 40dvh;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    border-radius: 20px;
-    border: 3px solid green;
+    border-radius: 2dvh;
+    border: 0.5dvh solid green;
     background-color: lightgrey;
     margin: 0;
     padding: 0;
@@ -76,24 +65,39 @@ img.location:hover{
 
 #close-button {
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 3dvh;
+    height: 3dvh;
     margin-left: auto;
     margin-right: 0;
-    padding: 5px;
+    padding: 0.5dvh;
 }
 
 #popup-text {
     text-align: center;
-    padding: 30px;
+    padding: 3dvh;
     margin: 0;
-    font-size: 14pt;
+    font-size: 2dvh;
 }
 
 #date-text {
     text-align: right;
-    padding: 10px;
+    padding: 1dvh;
     margin: 0;
-    font-size: 12pt;
+    font-size: 1.8dvh;
     font-style: italic;
+}
+
+/* Version box */
+/* Sizes done in dvh to keep same scaling when we zoom */
+p.version {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 2dvh;
+    aspect-ratio: 5 / 1;
+    margin: 0;
+    text-align: center;
+    font-size: 1.5dvh;
+    color: #ababab;
+    background-color: rgb(228, 228, 228);
 }
