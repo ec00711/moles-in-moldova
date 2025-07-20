@@ -5,20 +5,18 @@ body {
     padding: 0;
 }
 
-div.canvas {
-    position: absolute;
-    min-height: 100dvh;
-    min-width: 100dvw;
-    aspect-ratio: 2048 / 1267;
-    margin: auto;
-    background-color: #fff;
+/* Canvas etc */
+#canvas-container {
+    position: fixed;
+    height: 100dvh;
+    width: 100dvw;
+    overflow: auto;
 }
 
-/* Map */
-img.map {
+#canvas {
     position: relative;
-    min-width: 100%;
-    min-height: 100%;
+    height: 1267px;
+    width: 2048px;
 }
 
 /* Location markers */
@@ -42,7 +40,7 @@ img.location:hover{
 
 /* Pop up */
 /* Sizes done in dvh to keep same scaling when we zoom */
-#popup {
+.popup {
     position: fixed;
     width: 40dvh;
     top: 50%;
@@ -58,7 +56,7 @@ img.location:hover{
     transition: opacity 500ms ease-in, visibility 0ms linear 250ms;
 }
 
-#popup.show {
+.popup.show {
     visibility: visible;
     opacity: 80%;
 }
@@ -72,14 +70,14 @@ img.location:hover{
     padding: 0.5dvh;
 }
 
-#popup-text {
+p.main-text {
     text-align: center;
     padding: 3dvh;
     margin: 0;
     font-size: 2dvh;
 }
 
-#date-text {
+p.extra-text {
     text-align: right;
     padding: 1dvh;
     margin: 0;
