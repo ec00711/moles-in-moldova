@@ -68,6 +68,21 @@ addLocation("jaberwockies", "Jerusalem", "E", "2025-06-30", 0.5629, 0.4944);
 addLocation("Cheshire cats", "Cheltenham", "F", "2025-06-30", 0.4546, 0.3757);
 addLocation("owls", "Owl-bania", "E", "2025-07-13", 0.5184, 0.4421);
 addLocation("monarchs", "Monaco", "F", "2025-07-13", 0.4808, 0.4266);
+addLocation("sausage dogs", "Sydney", "E", "2025-07-13", 0.9077, 0.8519);
+//addLocation("dwarfs", "Discworld", "F", "2025-07-13", 0, 1.1);
+addLocation("Smash Dosés", "San Jose", "E", "2025-07-14", 0.1005, 0.4420);
+addLocation("piss", "the Pacific", "F", "2025-07-14", 0.9287, 0.5138);
+addLocation("T-Rex", "Tunisia", "F", "2025-07-14", 0.4854, 0.4878);
+addLocation("parrots", "the Pacific", "F", "2025-07-15", 0.9541, 0.5309);
+addLocation("papa bears", "Papua New Guinea", "E", "2025-07-15", 0.8994, 0.6914);
+//addLocation("caribou", "Klatch", "F", "2025-07-16", 0, 0);
+addLocation("bulldogs", "Bangladesh", "E", "2025-07-16", 0.7295, 0.5359);
+addLocation("mushrooms", "Mesopotamia", "E", "2025-07-17", 0.5825, 0.4862);
+addLocation("molluscs", "Moldova", "F", "2025-07-17", 0.5418, 0.4057);
+addLocation("marsupials", "Mayfair", "F", "2025-07-18", 0.4597, 0.3773);
+addLocation("giggly wiggly worms", "giggly wiggly Winchester", "E", "2025-07-18", 0.4568, 0.3804);
+addLocation("franks", "Finland", "F", "2025-07-19", 0.5293, 0.2644);
+addLocation("fins", "Franc-land", "E", "2025-07-19", 0.4673, 0.4112);
 
 // Add to html
 data_array.forEach((entry) => {
