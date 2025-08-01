@@ -17,8 +17,6 @@ body {
     position: relative;
     height: 1267px;
     width: 2048px;
-    object-fit: cover;
-    object-position: center;
 }
 
 /* Location markers */
