@@ -94,6 +94,22 @@ p.extra-text {
     font-style: italic;
 }
 
+/* Navigation buttons */
+button.nav-buttons {
+    position: fixed;
+    height: 15dvh;
+    width: 10dvh;
+    top: 45dvh;
+}
+
+#next-button {
+    right: 0;
+}
+
+#prev-button {
+    left: 0;
+}
+
 /* Version box */
 /* Sizes done in dvh to keep same scaling when we zoom */
 p.version {
