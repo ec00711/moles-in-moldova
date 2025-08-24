@@ -149,6 +149,21 @@ addLocation("ghosts", "Gran Canaria", "E", "2025-07-22", 0.4121, 0.5154);
 addLocation("rubber ducks", "rubber Denmark", "F", "2025-07-22", 0.4838, 0.3480);
 addLocation("invertebrates", "Indonesia", "F", "2025-07-23", 0.8247, 0.6650);
 addLocation("gastropods", "Guana", "E", "2025-07-23", 0.2637, 0.5656);
+addLocation("barbarians", "Bosnia", "E", "2025-08-17", 0.5087, 0.4223);
+addLocation("houses", "Herzegovina", "F", "2025-08-17", 0.5114, 0.4322);
+addLocation("kitchens", "Kazakhstan", "E", "2025-08-17", 0.6617, 0.3828);
+addLocation("orangutans", "Orlando", "F", "2025-08-18", 0.2151, 0.5099);
+addLocation("kittens", "Kentucky", "E", "2025-08-18", 0.2082, 0.4512);
+addLocation("safeguarding", "Sussex", "F", "2025-08-19", 0.4589, 0.3800);
+addLocation("yellow cards", "Yarmouth", "E", "2025-08-19", 0.4563, 0.3814);
+addLocation("Ricus", "Russia", "F", "2025-08-20", 0.7901, 0.3023);
+addLocation("Fortes", "Fiji", "E", "2025-08-20", 0.9963, 0.7543);
+addLocation("quadrupeds", "Queensland", "E", "2025-08-21", 0.8976, 0.7853);
+addLocation("feet", "feral France", "F", "2025-08-21", 0.4694, 0.4138);
+addLocation("snuggles", "Scandinavia", "F", "2025-08-22", 0.5009, 0.2726);
+addLocation("minxy minks", "Minnesota", "E", "2025-08-22", 0.2003, 0.3884);
+addLocation("eyeballs", "Egypt", "F", "2025-08-23", 0.5472, 0.5240);
+addLocation("witches", "Wales", "E", "2025-08-23", 0.4485, 0.3743);
 
 // Add to html
 for (let i = 0; i < data_array.length; i++) {
