@@ -1,16 +1,9 @@
-var scale = 1;
-var canvas = document.getElementById("canvas");
-function setScale(factor){
-    canvas.style.zoom = scale * factor;
-    scale = scale*factor;
-}
-
 /*** Print position when clicked - for placing locations ***/
 function printMousePos(event) {
-    var canvasRect = document.getElementById("canvas").getBoundingClientRect();
+    var canvas = document.getElementById("canvas").getBoundingClientRect();
     
-    let x = (event.clientX - canvasRect.left) / canvasRect.width;
-    let y = (event.clientY - canvasRect.top) / canvasRect.height;
+    let x = (event.clientX - canvas.left) / canvas.width;
+    let y = (event.clientY - canvas.top) / canvas.height;
     
     console.log("Click X: " + x + " Y: " + y);
 }
@@ -39,22 +32,6 @@ var worldMap = document.getElementById("world-map");
 worldMap.addEventListener("click", hidePopup);
 
 
-/*** Handle zoom buttons ***/
-function zoomIn(event){
-    setScale(1.25);
-}
-
-function zoomOut(event){
-    setScale(0.8);
-}
-
-var zoomInButton = document.getElementById("zoom-in");
-zoomInButton.addEventListener("click", zoomIn);
-var zoomOutButton = document.getElementById("zoom-out");
-zoomOutButton.addEventListener("click", zoomOut);
-
-
-/*** Add locations ***/
 // Generate array of data
 const data_array = [];
 
