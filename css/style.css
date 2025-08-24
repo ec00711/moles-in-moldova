@@ -47,23 +47,6 @@ img.location:hover{
     margin-top: -4dvh;
 }
 
-/* Zoom buttons */
-button.zoom-button {
-    position: fixed;
-    height: 10dvh;
-    width: 10dvh;
-}
-
-#zoom-in {
-    bottom: 15dvh;
-    right: 2.5dvh;
-}
-
-#zoom-out {
-    bottom: 2.5dvh;
-    right: 2.5dvh;
-}
-
 /* Pop up */
 .popup {
     position: absolute;
