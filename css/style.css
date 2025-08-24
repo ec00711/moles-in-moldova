@@ -32,19 +32,20 @@ body {
 /* Location markers */
 img.location {
     position: absolute;
-    width: 3%;
-    height: 3%;
-    margin-left: -1.5%;
-    margin-top: -3%;
+    width: 3dvh;
+    height: 3dvh;
+    margin-left: -1.5dvh;
+    margin-top: -3dvh;
     cursor: pointer;
     transition-duration: 500ms;
+    border-style: dashed;
 }
 
 img.location:hover{
-    width: 4%;
-    height: 4%;
-    margin-left: -2%;
-    margin-top: -4%;
+    width: 4dvh;
+    height: 4dvh;
+    margin-left: -2dvh;
+    margin-top: -4dvh;
 }
 
 /* Pop up */
@@ -91,6 +92,22 @@ p.extra-text {
     margin: 0;
     font-size: 1.8dvh;
     font-style: italic;
+}
+
+/* Navigation buttons */
+button.nav-buttons {
+    position: fixed;
+    height: 15dvh;
+    width: 10dvh;
+    top: 45dvh;
+}
+
+#next-button {
+    right: 0;
+}
+
+#prev-button {
+    left: 0;
 }
 
 /* Version box */

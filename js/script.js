@@ -13,7 +13,10 @@ document.addEventListener("click", printMousePos);
 
 /*** Handle showing/hiding of popup ***/
 
-function showPopup(event, entry){
+function showPopup(event, i){
+    current_location_id = i;
+    var entry = data_array[i];
+
     var popup = document.getElementById("info-popup");
     popup.classList.add("show");
 
@@ -28,6 +31,8 @@ function showPopup(event, entry){
 }
 
 function hidePopup(event){
+    current_location_id = -1;
+
     var popup = document.getElementById("info-popup");
     popup.classList.remove("show");
     
@@ -41,8 +46,51 @@ var worldMap = document.getElementById("world-map");
 worldMap.addEventListener("click", hidePopup);
 
 
+/*** Handle left/right navigation buttons ***/
+
+function goNext(event){
+    if(current_location_id < 0){
+        // Nothing is selected - do nothing
+        return;
+    }
+
+    // Calculate ID of next location
+    var next_id = current_location_id + 1;
+    if(next_id >= data_array.length){
+        // Wrap around
+        next_id = 0;
+    }
+
+    // Go to it
+    showPopup(null, next_id);
+}
+
+function goPrev(event){
+    if(current_location_id < 0){
+        // Nothing is selected - do nothing
+        return;
+    }
+
+    // Calculate ID of previous location
+    var prev_id = current_location_id - 1;
+    if(prev_id < 0){
+        // Wrap around
+        prev_id = data_array.length - 1;
+    }
+
+    // Go to it
+    showPopup(null, prev_id);
+}
+
+var nextButton = document.getElementById("next-button");
+nextButton.addEventListener("click", goNext);
+var prevButton = document.getElementById("prev-button");
+prevButton.addEventListener("click", goPrev);
+
+
 // Generate array of data
 const data_array = [];
+var current_location_id = -1;
 
 function addLocation(things, place, who, dateStr, x, y){
     data_array.push({things: things, place: place, who: who, dateStr: dateStr, left: x, top: y});
@@ -81,8 +129,8 @@ addLocation("sausage dogs", "Sydney", "E", "2025-07-13", 0.9077, 0.8519);
 //addLocation("dwarfs", "Discworld", "F", "2025-07-13", 0, 1.1);
 addLocation("Smash Dosés", "San Jose", "E", "2025-07-14", 0.1005, 0.4420);
 addLocation("piss", "the Pacific", "F", "2025-07-14", 0.9287, 0.5138);
-addLocation("T-Rex", "Tunisia", "F", "2025-07-14", 0.4854, 0.4878);
 addLocation("parrots", "the Pacific", "F", "2025-07-15", 0.9541, 0.5309);
+addLocation("T-Rex", "Tunisia", "F", "2025-07-14", 0.4854, 0.4878);
 addLocation("papa bears", "Papua New Guinea", "E", "2025-07-15", 0.8994, 0.6914);
 //addLocation("caribou", "Klatch", "F", "2025-07-16", 0, 0);
 addLocation("bulldogs", "Bangladesh", "E", "2025-07-16", 0.7295, 0.5359);
@@ -103,15 +151,16 @@ addLocation("invertebrates", "Indonesia", "F", "2025-07-23", 0.8247, 0.6650);
 addLocation("gastropods", "Guana", "E", "2025-07-23", 0.2637, 0.5656);
 
 // Add to html
-data_array.forEach((entry) => {
-    var loc = document.createElement("img");
+for (let i = 0; i < data_array.length; i++) {
+    var entry = data_array[i];
 
+    var loc = document.createElement("img");
     loc.classList.add("location");
     loc.src = "assets/location.svg";
     loc.style.top = entry.top*100 + "%";
     loc.style.left = entry.left*100 + "%";
 
-    loc.addEventListener("click", (evt) => showPopup(evt, entry));
+    loc.addEventListener("click", (evt) => showPopup(evt, i));
 
     document.getElementById("locations").appendChild(loc);
-});
+};
