@@ -20,9 +20,8 @@ body {
     height: 100%;
     width: 100%;
     object-fit: contain;
-
-    /*TODO: Zoom/pan programatically*/
-    /*transform: scale(2,2);*/
+    /* For zooming/panning: */
+    transition: transform 2s;
 }
 
 #world-map {

@@ -12,18 +12,27 @@ document.addEventListener("click", printMousePos);
 
 
 /*** Handle showing/hiding of popup ***/
-var popup = document.getElementById("info-popup");
 
 function showPopup(event, entry){
+    var popup = document.getElementById("info-popup");
     popup.classList.add("show");
+
     document.getElementById("popup-text").innerText =
         "I love you more than all the " + entry.things + " in " + entry.place;
     document.getElementById("date-text").innerText =
         entry.who + ", " + entry.dateStr;
+    
+    var canvas = document.getElementById("canvas");
+    var panX = 0.5 - entry.left; var panY = 0.5 - entry.top;
+    canvas.style.transform = "scale(4,4) translate("+panX*100+"%,"+panY*100+"%)";
 }
 
 function hidePopup(event){
+    var popup = document.getElementById("info-popup");
     popup.classList.remove("show");
+    
+    var canvas = document.getElementById("canvas");
+    canvas.style.transform = "scale(1,1) translate(0,0)";
 }
 
 var xButton = document.getElementById("close-button");
