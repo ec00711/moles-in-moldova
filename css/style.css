@@ -7,20 +7,29 @@ body {
 
 /* Canvas etc */
 #canvas-container {
-    position: fixed;
-    height: 100dvh;
-    width: 100dvw;
-    overflow: auto;
+    position: relative;
+    max-width: 100dvw;
+    max-height: 100dvh;
+    aspect-ratio: 2048/1267;
+    margin: auto;
+    overflow: hidden;
 }
 
 #canvas {
-    position: relative;
-    height: 1267px;
-    width: 2048px;
+    position: static;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    /* For zooming/panning: */
+    transition: transform 2s;
+}
+
+#world-map {
+    height: 100%;
+    width: 100%;
 }
 
 /* Location markers */
-/* Sizes done in dvh to keep same scaling when we zoom */
 img.location {
     position: absolute;
     width: 3dvh;
@@ -56,10 +65,9 @@ button.zoom-button {
 }
 
 /* Pop up */
-/* Sizes done in dvh to keep same scaling when we zoom */
 .popup {
-    position: fixed;
-    width: 40dvh;
+    position: absolute;
+    width: 40%;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -80,11 +88,11 @@ button.zoom-button {
 
 #close-button {
     display: block;
-    width: 3dvh;
-    height: 3dvh;
+    width: 3%;
+    height: 3%;
     margin-left: auto;
     margin-right: 0;
-    padding: 0.5dvh;
+    padding: 0.5%;
 }
 
 p.main-text {
@@ -100,6 +108,22 @@ p.extra-text {
     margin: 0;
     font-size: 1.8dvh;
     font-style: italic;
+}
+
+/* Navigation buttons */
+button.nav-buttons {
+    position: fixed;
+    height: 15dvh;
+    width: 10dvh;
+    top: 45dvh;
+}
+
+#next-button {
+    right: 0;
+}
+
+#prev-button {
+    left: 0;
 }
 
 /* Version box */

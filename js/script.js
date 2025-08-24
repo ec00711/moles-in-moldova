@@ -1,16 +1,9 @@
-var scale = 1;
-var canvas = document.getElementById("canvas");
-function setScale(factor){
-    canvas.style.zoom = scale * factor;
-    scale = scale*factor;
-}
-
 /*** Print position when clicked - for placing locations ***/
 function printMousePos(event) {
-    var canvasRect = document.getElementById("canvas").getBoundingClientRect();
+    var canvas = document.getElementById("canvas").getBoundingClientRect();
     
-    let x = (event.clientX - canvasRect.left) / canvasRect.width;
-    let y = (event.clientY - canvasRect.top) / canvasRect.height;
+    let x = (event.clientX - canvas.left) / canvas.width;
+    let y = (event.clientY - canvas.top) / canvas.height;
     
     console.log("Click X: " + x + " Y: " + y);
 }
@@ -19,18 +12,32 @@ document.addEventListener("click", printMousePos);
 
 
 /*** Handle showing/hiding of popup ***/
-var popup = document.getElementById("info-popup");
 
-function showPopup(event, entry){
+function showPopup(event, i){
+    current_location_id = i;
+    var entry = data_array[i];
+
+    var popup = document.getElementById("info-popup");
     popup.classList.add("show");
+
     document.getElementById("popup-text").innerText =
         "I love you more than all the " + entry.things + " in " + entry.place;
     document.getElementById("date-text").innerText =
         entry.who + ", " + entry.dateStr;
+    
+    var canvas = document.getElementById("canvas");
+    var panX = 0.5 - entry.left; var panY = 0.5 - entry.top;
+    canvas.style.transform = "scale(4,4) translate("+panX*100+"%,"+panY*100+"%)";
 }
 
 function hidePopup(event){
+    current_location_id = -1;
+
+    var popup = document.getElementById("info-popup");
     popup.classList.remove("show");
+    
+    var canvas = document.getElementById("canvas");
+    canvas.style.transform = "scale(1,1) translate(0,0)";
 }
 
 var xButton = document.getElementById("close-button");
@@ -39,24 +46,51 @@ var worldMap = document.getElementById("world-map");
 worldMap.addEventListener("click", hidePopup);
 
 
-/*** Handle zoom buttons ***/
-function zoomIn(event){
-    setScale(1.25);
+/*** Handle left/right navigation buttons ***/
+
+function goNext(event){
+    if(current_location_id < 0){
+        // Nothing is selected - do nothing
+        return;
+    }
+
+    // Calculate ID of next location
+    var next_id = current_location_id + 1;
+    if(next_id >= data_array.length){
+        // Wrap around
+        next_id = 0;
+    }
+
+    // Go to it
+    showPopup(null, next_id);
 }
 
-function zoomOut(event){
-    setScale(0.8);
+function goPrev(event){
+    if(current_location_id < 0){
+        // Nothing is selected - do nothing
+        return;
+    }
+
+    // Calculate ID of previous location
+    var prev_id = current_location_id - 1;
+    if(prev_id < 0){
+        // Wrap around
+        prev_id = data_array.length - 1;
+    }
+
+    // Go to it
+    showPopup(null, prev_id);
 }
 
-var zoomInButton = document.getElementById("zoom-in");
-zoomInButton.addEventListener("click", zoomIn);
-var zoomOutButton = document.getElementById("zoom-out");
-zoomOutButton.addEventListener("click", zoomOut);
+var nextButton = document.getElementById("next-button");
+nextButton.addEventListener("click", goNext);
+var prevButton = document.getElementById("prev-button");
+prevButton.addEventListener("click", goPrev);
 
 
-/*** Add locations ***/
 // Generate array of data
 const data_array = [];
+var current_location_id = -1;
 
 function addLocation(things, place, who, dateStr, x, y){
     data_array.push({things: things, place: place, who: who, dateStr: dateStr, left: x, top: y});
@@ -95,8 +129,8 @@ addLocation("sausage dogs", "Sydney", "E", "2025-07-13", 0.9077, 0.8519);
 //addLocation("dwarfs", "Discworld", "F", "2025-07-13", 0, 1.1);
 addLocation("Smash Dosés", "San Jose", "E", "2025-07-14", 0.1005, 0.4420);
 addLocation("piss", "the Pacific", "F", "2025-07-14", 0.9287, 0.5138);
-addLocation("T-Rex", "Tunisia", "F", "2025-07-14", 0.4854, 0.4878);
 addLocation("parrots", "the Pacific", "F", "2025-07-15", 0.9541, 0.5309);
+addLocation("T-Rex", "Tunisia", "F", "2025-07-14", 0.4854, 0.4878);
 addLocation("papa bears", "Papua New Guinea", "E", "2025-07-15", 0.8994, 0.6914);
 //addLocation("caribou", "Klatch", "F", "2025-07-16", 0, 0);
 addLocation("bulldogs", "Bangladesh", "E", "2025-07-16", 0.7295, 0.5359);
@@ -115,17 +149,33 @@ addLocation("ghosts", "Gran Canaria", "E", "2025-07-22", 0.4121, 0.5154);
 addLocation("rubber ducks", "rubber Denmark", "F", "2025-07-22", 0.4838, 0.3480);
 addLocation("invertebrates", "Indonesia", "F", "2025-07-23", 0.8247, 0.6650);
 addLocation("gastropods", "Guana", "E", "2025-07-23", 0.2637, 0.5656);
+addLocation("barbarians", "Bosnia", "E", "2025-08-17", 0.5087, 0.4223);
+addLocation("houses", "Herzegovina", "F", "2025-08-17", 0.5114, 0.4322);
+addLocation("kitchens", "Kazakhstan", "E", "2025-08-17", 0.6617, 0.3828);
+addLocation("orangutans", "Orlando", "F", "2025-08-18", 0.2151, 0.5099);
+addLocation("kittens", "Kentucky", "E", "2025-08-18", 0.2082, 0.4512);
+addLocation("safeguarding", "Sussex", "F", "2025-08-19", 0.4589, 0.3800);
+addLocation("yellow cards", "Yarmouth", "E", "2025-08-19", 0.4563, 0.3814);
+addLocation("Ricus", "Russia", "F", "2025-08-20", 0.7901, 0.3023);
+addLocation("Fortes", "Fiji", "E", "2025-08-20", 0.9963, 0.7543);
+addLocation("quadrupeds", "Queensland", "E", "2025-08-21", 0.8976, 0.7853);
+addLocation("feet", "feral France", "F", "2025-08-21", 0.4694, 0.4138);
+addLocation("snuggles", "Scandinavia", "F", "2025-08-22", 0.5009, 0.2726);
+addLocation("minxy minks", "Minnesota", "E", "2025-08-22", 0.2003, 0.3884);
+addLocation("eyeballs", "Egypt", "F", "2025-08-23", 0.5472, 0.5240);
+addLocation("witches", "Wales", "E", "2025-08-23", 0.4485, 0.3743);
 
 // Add to html
-data_array.forEach((entry) => {
-    var loc = document.createElement("img");
+for (let i = 0; i < data_array.length; i++) {
+    var entry = data_array[i];
 
+    var loc = document.createElement("img");
     loc.classList.add("location");
     loc.src = "assets/location.svg";
     loc.style.top = entry.top*100 + "%";
     loc.style.left = entry.left*100 + "%";
 
-    loc.addEventListener("click", (evt) => showPopup(evt, entry));
+    loc.addEventListener("click", (evt) => showPopup(evt, i));
 
     document.getElementById("locations").appendChild(loc);
-});
+};
