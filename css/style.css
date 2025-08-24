@@ -38,7 +38,6 @@ img.location {
     margin-top: -3dvh;
     cursor: pointer;
     transition-duration: 500ms;
-    border-style: dashed;
 }
 
 img.location:hover{
