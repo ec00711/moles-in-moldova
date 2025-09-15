@@ -14,6 +14,8 @@ document.addEventListener("click", printMousePos);
 /*** Handle showing/hiding of popup ***/
 
 function showPopup(event, i){
+    document.getElementById("atuin").classList.remove("flown");
+
     current_location_id = i;
     var entry = data_array[i];
 
@@ -26,8 +28,17 @@ function showPopup(event, i){
         entry.who + ", " + entry.dateStr;
     
     var canvas = document.getElementById("canvas");
-    var panX = 0.5 - entry.left; var panY = 0.5 - entry.top;
-    canvas.style.transform = "scale(4,4) translate("+panX*100+"%,"+panY*100+"%)";
+    if(entry.isDiscworld){
+        // Discworld
+        canvas.style.transform = "scale(1,1) translate(0%,0%)";
+        document.getElementById("atuin").classList.add("flown");
+    }
+    else{
+        // Earth
+        var panX = 0.5 - entry.left; var panY = 0.5 - entry.top;
+        canvas.style.transform = "scale(4,4) translate("+panX*100+"%,"+panY*100+"%)";
+    }
+    
 }
 
 function hidePopup(event){
@@ -92,8 +103,8 @@ prevButton.addEventListener("click", goPrev);
 const data_array = [];
 var current_location_id = -1;
 
-function addLocation(things, place, who, dateStr, x, y){
-    data_array.push({things: things, place: place, who: who, dateStr: dateStr, left: x, top: y});
+function addLocation(things, place, who, dateStr, x, y, isDiscworld = false){
+    data_array.push({things: things, place: place, who: who, dateStr: dateStr, left: x, top: y, isDiscworld: isDiscworld});
 }
 
 addLocation("raccoons", "Russia", "F", "2025-06-15", 0.700, 0.270);
@@ -108,12 +119,12 @@ addLocation("rats", "Rotterdam", "E", "2025-06-19", 0.4729, 0.3722);
 addLocation("gibbons", "Gabon", "E", "2025-06-22", 0.495, 0.661);
 addLocation("ravens", "Romania", "F", "2025-06-22", 0.530, 0.417);
 addLocation("morris men", "Manchester", "E", "2025-06-23", 0.4547, 0.3629);
-//addLocation("lemmings", "Lancre", "F", "2025-06-23", 0.5, 1.1);
+addLocation("lemmings", "Lancre", "F", "2025-06-23", null, null, true);
 addLocation("gators", "Galway", "F", "2025-06-24", 0.4355, 0.3660);
 addLocation("guinea pigs", "Ghana", "E", "2025-06-24", 0.453, 0.620);
 addLocation("kittens", "Kenya", "E", "2025-06-25", 0.574, 0.661);
 addLocation("dragons", "Denmark", "F", "2025-06-25", 0.4921, 0.3505);
-//addLocation("morris dancers", "Morpork", "F", "2025-06-26", 0.4, 1.1);
+addLocation("morris dancers", "Morpork", "F", "2025-06-26", null, null, true);
 addLocation("donkeys", "Damascus", "E", "2025-06-26", 0.5670, 0.4854);
 //addLocation("harfoots", "Hobbiton", "E", "2025-06-27", 0.6, 1.1);
 //addLocation("hobbits", "Hobbiton", "F", "2025-06-27", 0.65, 1.1);
@@ -126,13 +137,13 @@ addLocation("Cheshire cats", "Cheltenham", "F", "2025-06-30", 0.4546, 0.3757);
 addLocation("owls", "Owl-bania", "E", "2025-07-13", 0.5184, 0.4421);
 addLocation("monarchs", "Monaco", "F", "2025-07-13", 0.4808, 0.4266);
 addLocation("sausage dogs", "Sydney", "E", "2025-07-13", 0.9077, 0.8519);
-//addLocation("dwarfs", "Discworld", "F", "2025-07-13", 0, 1.1);
+addLocation("dwarfs", "Discworld", "F", "2025-07-13", null, null, true);
 addLocation("Smash Dosés", "San Jose", "E", "2025-07-14", 0.1005, 0.4420);
 addLocation("piss", "the Pacific", "F", "2025-07-14", 0.9287, 0.5138);
 addLocation("parrots", "the Pacific", "F", "2025-07-15", 0.9541, 0.5309);
 addLocation("T-Rex", "Tunisia", "F", "2025-07-14", 0.4854, 0.4878);
 addLocation("papa bears", "Papua New Guinea", "E", "2025-07-15", 0.8994, 0.6914);
-//addLocation("caribou", "Klatch", "F", "2025-07-16", 0, 0);
+addLocation("caribou", "Klatch", "F", "2025-07-16", null, null, true);
 addLocation("bulldogs", "Bangladesh", "E", "2025-07-16", 0.7295, 0.5359);
 addLocation("mushrooms", "Mesopotamia", "E", "2025-07-17", 0.5825, 0.4862);
 addLocation("molluscs", "Moldova", "F", "2025-07-17", 0.5418, 0.4057);
