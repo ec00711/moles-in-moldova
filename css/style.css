@@ -64,6 +64,22 @@ img.location:hover{
     transition: all 5s ease-in;
 }
 
+#hobbit-hole {
+    position: absolute;
+    width: 20%;
+    z-index: 1000;
+    right: -5%;
+    bottom: -50%;
+    transition: all 1s ease-in-out;
+}
+
+#hobbit-hole.popped {
+    width: 30%;
+    right: -5%;
+    bottom: -5%;
+    transition-delay: 1s;
+}
+
 /* Pop up */
 .popup {
     position: absolute;

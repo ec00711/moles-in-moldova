@@ -14,10 +14,11 @@ document.addEventListener("click", printMousePos);
 /*** Handle showing/hiding of popup ***/
 
 function showPopup(event, i){
-    document.getElementById("atuin").classList.remove("flown");
-
     current_location_id = i;
     var entry = data_array[i];
+
+    document.getElementById("atuin").classList.remove("flown");
+    document.getElementById("hobbit-hole").classList.remove("popped");
 
     var popup = document.getElementById("info-popup");
     popup.classList.add("show");
@@ -33,6 +34,11 @@ function showPopup(event, i){
         canvas.style.transform = "scale(1,1) translate(0%,0%)";
         document.getElementById("atuin").classList.add("flown");
     }
+    else if(entry.isHobbiton){
+        // Hobbiton
+        canvas.style.transform = "scale(1,1) translate(0%,0%)";
+        document.getElementById("hobbit-hole").classList.add("popped");
+    }
     else{
         // Earth
         var panX = 0.5 - entry.left; var panY = 0.5 - entry.top;
@@ -43,6 +49,9 @@ function showPopup(event, i){
 
 function hidePopup(event){
     current_location_id = -1;
+    
+    document.getElementById("atuin").classList.remove("flown");
+    document.getElementById("hobbit-hole").classList.remove("popped");
 
     var popup = document.getElementById("info-popup");
     popup.classList.remove("show");
@@ -103,8 +112,8 @@ prevButton.addEventListener("click", goPrev);
 const data_array = [];
 var current_location_id = -1;
 
-function addLocation(things, place, who, dateStr, x, y, isDiscworld = false){
-    data_array.push({things: things, place: place, who: who, dateStr: dateStr, left: x, top: y, isDiscworld: isDiscworld});
+function addLocation(things, place, who, dateStr, x, y, isDiscworld = false, isHobbiton = false){
+    data_array.push({things: things, place: place, who: who, dateStr: dateStr, left: x, top: y, isDiscworld: isDiscworld, isHobbiton: isHobbiton});
 }
 
 addLocation("raccoons", "Russia", "F", "2025-06-15", 0.700, 0.270);
@@ -126,8 +135,8 @@ addLocation("kittens", "Kenya", "E", "2025-06-25", 0.574, 0.661);
 addLocation("dragons", "Denmark", "F", "2025-06-25", 0.4921, 0.3505);
 addLocation("morris dancers", "Morpork", "F", "2025-06-26", null, null, true);
 addLocation("donkeys", "Damascus", "E", "2025-06-26", 0.5670, 0.4854);
-//addLocation("harfoots", "Hobbiton", "E", "2025-06-27", 0.6, 1.1);
-//addLocation("hobbits", "Hobbiton", "F", "2025-06-27", 0.65, 1.1);
+addLocation("harfoots", "Hobbiton", "E", "2025-06-27", null, null, false, true);
+addLocation("hobbits", "Hobbiton", "F", "2025-06-27", null, null, false, true);
 addLocation("hamsters", "Honduras", "F", "2025-06-28", 0.1976, 0.5791);
 addLocation("sheep", "San Francisco", "E", "2025-06-28", 0.0983, 0.4390);
 addLocation("dinosaurs", "Denmark", "F", "2025-06-29", 0.4869, 0.3461);
