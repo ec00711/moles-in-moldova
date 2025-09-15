@@ -47,6 +47,23 @@ img.location:hover{
     margin-top: -4dvh;
 }
 
+/* Other assets */
+#atuin {
+    position: absolute;
+    width: 30%;
+    z-index: 1000;
+    left: -40%;
+    top: 45%;
+    rotate: -20deg;
+}
+
+#atuin.flown {
+    left: 100%;
+    top: 20%;
+    rotate: 0deg;
+    transition: all 5s ease-in;
+}
+
 /* Pop up */
 .popup {
     position: absolute;
