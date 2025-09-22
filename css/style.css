@@ -34,19 +34,19 @@ body {
 /* Location markers */
 img.location {
     position: absolute;
-    width: 3dvh;
-    height: 3dvh;
-    margin-left: -1.5dvh;
-    margin-top: -3dvh;
+    width: 2.5dvh;
+    height: 2.5dvh;
+    margin-left: -1.25dvh;
+    margin-top: -2.5dvh;
     cursor: pointer;
     transition-duration: 500ms;
 }
 
 img.location:hover{
-    width: 4dvh;
-    height: 4dvh;
-    margin-left: -2dvh;
-    margin-top: -4dvh;
+    width: 3.5dvh;
+    height: 3.5dvh;
+    margin-left: -1.75dvh;
+    margin-top: -3.5dvh;
 }
 
 /* Other assets */
