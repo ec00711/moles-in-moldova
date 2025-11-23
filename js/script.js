@@ -79,10 +79,6 @@ function hidePopup(event){
     canvas.style.transform = "scale(1,1) translate(0,0)";
 }
 
-// why isn't this working...
-
-// seriously, what?
-
 // Close pop up when map clicked
 var worldMap = document.getElementById("world-map");
 worldMap.addEventListener("click", hidePopup);
