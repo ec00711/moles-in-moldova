@@ -1,3 +1,5 @@
+zoomRatio = 4;
+
 /*** Print position when clicked - for placing locations ***/
 function printMousePos(event) {
     var canvas = document.getElementById("canvas").getBoundingClientRect();
@@ -57,7 +59,7 @@ function showPopup(event, i){
     else{
         // Earth
         var panX = 0.5 - entry.left; var panY = 0.5 - entry.top;
-        canvas.style.transform = "scale(4,4) translate("+panX*100+"%,"+panY*100+"%)";
+        canvas.style.transform = "scale("+zoomRatio+","+zoomRatio+") translate("+panX*100+"%,"+panY*100+"%)";
     }
     
 }
@@ -182,7 +184,7 @@ addLocation("pirates", "Pyrenees", "E", "2025-07-20", 0.5008, 0.1933);
 addLocation("dinosaurs", "Denmark", "F", "2025-07-21", 0.5238, 0.1145);
 addLocation("T-Rex", "Tunisia", "F", "2025-07-21", 0.5216, 0.2469);
 addLocation("pterodactyls", "Ptennessee", "E", "2025-07-21", 0.2823, 0.2376);
-addLocation("ghosts", "Gran Canaria", "E", "2025-07-22", 0.4596, 0.2946);
+addLocation("ghosts", "Gran Canaria", "E", "2025-07-22", 0.4605, 0.2946);
 addLocation("rubber ducks", "rubber Denmark", "F", "2025-07-22", 0.5190, 0.1144);
 addLocation("invertebrates", "Indonesia", "F", "2025-07-23", 0.7846, 0.5109);
 addLocation("gastropods", "Guana", "E", "2025-07-23", 0.32615, 0.36172);

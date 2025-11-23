@@ -10,11 +10,9 @@ body {
     position: relative;
     max-width: 100dvw;
     max-height: 100dvh;
-    aspect-ratio: 13622/6663;
+    aspect-ratio: 6811/3331;
     margin: auto;
     overflow: hidden;
-    border-color: blue;
-    border-style: dashed;
 }
 
 #canvas {
@@ -40,6 +38,7 @@ img.location {
     margin-top: -2.5dvh;
     cursor: pointer;
     transition-duration: 500ms;
+    opacity: 90%;
 }
 
 img.location:hover{
