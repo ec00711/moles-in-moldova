@@ -79,14 +79,12 @@ function hidePopup(event){
     canvas.style.transform = "scale(1,1) translate(0,0)";
 }
 
-var xButton = document.getElementById("close-button");
-xButton.addEventListener("click", hidePopup);
+// Close pop up when map clicked
 var worldMap = document.getElementById("world-map");
 worldMap.addEventListener("click", hidePopup);
 
 
 /*** Handle left/right navigation buttons ***/
-
 function goNext(event){
     if(current_location_id < 0){
         // Nothing is selected - do nothing
