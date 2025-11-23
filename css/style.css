@@ -82,6 +82,36 @@ img.location:hover{
     transition-delay: 1s;
 }
 
+#venus {
+    position: absolute;
+    height: 10%;
+    z-index: 1000;
+    left: 120%;
+    top: 100%;
+    rotate: 0deg;
+}
+
+#venus.retrograded {
+    left: -20%;
+    top: -30%;
+    rotate: -3600deg;
+    transition: all 2s ease-in;
+}
+
+#coin {
+    position: absolute;
+    height: 20%;
+    left: -10%;
+    bottom: -2%;
+    z-index: 1000;
+}
+
+#coin.rolled {
+    left: 110%;
+    rotate: 1800deg;
+    transition: all 5s ease-in;
+}
+
 /* Pop up */
 .popup {
     position: absolute;
