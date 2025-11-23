@@ -17,9 +17,13 @@ function showPopup(event, i){
     current_location_id = i;
     var entry = data_array[i];
 
+    // Clear assets
     document.getElementById("atuin").classList.remove("flown");
     document.getElementById("hobbit-hole").classList.remove("popped");
+    document.getElementById("venus").classList.remove("retrograded");
+    document.getElementById("coin").classList.remove("rolled");
 
+    // Set up pop up
     var popup = document.getElementById("info-popup");
     popup.classList.add("show");
 
@@ -28,17 +32,27 @@ function showPopup(event, i){
     document.getElementById("date-text").innerText =
         entry.who + ", " + entry.dateStr;
     
+    // Zoom and additional items
     var canvas = document.getElementById("canvas");
     if(entry.type == "disc"){
         // Discworld
         canvas.style.transform = "scale(1,1) translate(0%,0%)";
         document.getElementById("atuin").classList.add("flown");
-        // TODO: Could handle in separate method to avoid interrupting it but I don't think necessary (yet)
     }
     else if(entry.type == "hobbit"){
         // Hobbiton
         canvas.style.transform = "scale(1,1) translate(0%,0%)";
         document.getElementById("hobbit-hole").classList.add("popped");
+    }
+    else if(entry.type == "venus"){
+        // Venus
+        canvas.style.transform = "scale(1,1) translate(0%,0%)";
+        document.getElementById("venus").classList.add("retrograded");
+    }
+    else if(entry.type == "dorado"){
+        // El Dorado
+        canvas.style.transform = "scale(1,1) translate(0%,0%)";
+        document.getElementById("coin").classList.add("rolled");
     }
     else{
         // Earth
@@ -53,6 +67,8 @@ function hidePopup(event){
     
     document.getElementById("atuin").classList.remove("flown");
     document.getElementById("hobbit-hole").classList.remove("popped");
+    document.getElementById("venus").classList.remove("retrograded");
+    document.getElementById("coin").classList.remove("rolled");
 
     var popup = document.getElementById("info-popup");
     popup.classList.remove("show");
@@ -186,7 +202,7 @@ addLocation("minxy minks", "Minnesota", "E", "2025-08-22", 0.2785, 0.1686);
 addLocation("eyeballs", "Egypt", "F", "2025-08-23", 0.5771, 0.2862);
 addLocation("witches", "Wales", "E", "2025-08-23", 0.4921, 0.1341);
 addLocation("mink", "Minneapolis", "F", "2025-08-24", 0.2796, 0.1736);
-addLocation("elks", "El Dorado", "E", "2025-08-25", null, null, "dorado"); // TODO!
+addLocation("elks", "El Dorado", "E", "2025-08-25", null, null, "dorado");
 addLocation("toasters", "Timbuktu", "F", "2025-08-25", 0.4930, 0.3754);
 addLocation("sunflowers", "Sicily", "E", "2025-08-31", 0.5353, 0.2261);
 addLocation("delphiniums", "Dartford", "F", "2025-08-31", 0.5007, 0.1387);
@@ -200,7 +216,7 @@ addLocation("hay", "Hammersmith", "F", "2025-09-04", 0.5006, 0.1386);
 addLocation("straw", "Scotland", "E", "2025-09-04", 0.4905, 0.1075);
 addLocation("Gromits", "Greece", "F", "2025-09-07", 0.5547, 0.2158);
 addLocation("kangaroos", "Klatch", "E", "2025-09-07", null, null, "disc");
-addLocation("Venn diagrams", "Venus", "E", "2025-09-08", null, null, "venus"); // TODO!
+addLocation("Venn diagrams", "Venus", "E", "2025-09-08", null, null, "venus");
 addLocation("heffalumps", "Hemmel Hempstead", "F", "2025-09-08", 0.4996, 0.1355);
 addLocation("grumpus'", "Gran Canaria", "F", "2025-09-09", 0.4597, 0.2945);
 addLocation("grinches", "Greece", "E", "2025-09-09", 0.5580, 0.2214);
