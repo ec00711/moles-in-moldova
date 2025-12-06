@@ -169,6 +169,46 @@ img.nav-buttons:hover{
     left: -10%;
 }
 
+/* Search bar */
+.searchbar {
+    position: fixed;
+    bottom: 0;
+    left: 35dvw;
+    right: 35dvw;
+}
+
+.searchbar-items{
+    position: relative;
+    width: 30dvw;
+    background-color: #f6f6f6;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+#search-input{
+    width: 30dvw;
+    box-sizing: border-box;
+    background-image: url('searchicon.png');/*TODO*/
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+#search-input:focus {outline: 3px solid #ddd;}
+
+#search-results a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: none;
+}
+
+#search-results a:hover {background-color: #ddd;}
+
 /* Version box */
 /* Sizes done in dvh to keep same scaling when we zoom */
 p.version {

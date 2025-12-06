@@ -79,9 +79,10 @@ function hidePopup(event){
     canvas.style.transform = "scale(1,1) translate(0,0)";
 }
 
-// Close pop up when map clicked
+// Close pop ups etc when map clicked
 var worldMap = document.getElementById("world-map");
 worldMap.addEventListener("click", hidePopup);
+worldMap.addEventListener("click", clearSearch);
 
 
 /*** Handle left/right navigation buttons ***/
@@ -123,6 +124,31 @@ var nextButton = document.getElementById("next-button");
 nextButton.addEventListener("click", goNext);
 var prevButton = document.getElementById("prev-button");
 prevButton.addEventListener("click", goPrev);
+
+
+// Search bar
+function filterSearch(){
+    const input = document.getElementById("search-input");
+    const filterValue = input.value.toUpperCase();
+
+    const div = document.getElementById("search-results");
+    const aList = div.getElementsByTagName("a");
+
+    for (let i = 0; i < aList.length; i++) {
+        txtValue = aList[i].textContent || aList[i].innerText;
+        if (filterValue.length > 2 && txtValue.toUpperCase().indexOf(filterValue) > -1) {
+            aList[i].style.display = "block";
+        } else {
+            aList[i].style.display = "none";
+        }
+    }
+}
+
+function clearSearch(){
+    const input = document.getElementById("search-input");
+    input.value = "";
+    filterSearch();
+}
 
 
 // Generate array of data
@@ -244,13 +270,21 @@ addLocation("puppies", "Patagonia", "F", "2025-09-21", 0.3321, 0.7728);
 for (let i = 0; i < data_array.length; i++) {
     var entry = data_array[i];
 
+    // Location marker
     var loc = document.createElement("img");
     loc.classList.add("location");
     loc.src = "assets/location.svg";
     loc.style.top = entry.top*100 + "%";
     loc.style.left = entry.left*100 + "%";
-
     loc.addEventListener("click", (evt) => showPopup(evt, i));
 
     document.getElementById("locations").appendChild(loc);
+
+    // Searchbar item
+    var item = document.createElement("a");
+    item.innerText = entry.things + " in " + entry.place;
+    item.addEventListener("click", clearSearch);
+    item.addEventListener("click", (evt) => showPopup(evt, i));
+
+    document.getElementById("search-results").appendChild(item);
 };
