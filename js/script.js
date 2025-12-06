@@ -135,7 +135,7 @@ function filterSearch(){
     const aList = div.getElementsByTagName("a");
 
     for (let i = 0; i < aList.length; i++) {
-        txtValue = aList[i].textContent || aList[i].innerText; //TODO: Get index and look up in dictionary instead
+        txtValue = aList[i].textContent || aList[i].innerText;
         if (filterValue.length > 2 && txtValue.toUpperCase().indexOf(filterValue) > -1) {
             aList[i].style.display = "block";
         } else {
@@ -270,13 +270,21 @@ addLocation("puppies", "Patagonia", "F", "2025-09-21", 0.3321, 0.7728);
 for (let i = 0; i < data_array.length; i++) {
     var entry = data_array[i];
 
+    // Location marker
     var loc = document.createElement("img");
     loc.classList.add("location");
     loc.src = "assets/location.svg";
     loc.style.top = entry.top*100 + "%";
     loc.style.left = entry.left*100 + "%";
-
     loc.addEventListener("click", (evt) => showPopup(evt, i));
 
     document.getElementById("locations").appendChild(loc);
+
+    // Searchbar item
+    var item = document.createElement("a");
+    item.innerText = entry.things + " in " + entry.place;
+    item.addEventListener("click", clearSearch);
+    item.addEventListener("click", (evt) => showPopup(evt, i));
+
+    document.getElementById("search-results").appendChild(item);
 };
