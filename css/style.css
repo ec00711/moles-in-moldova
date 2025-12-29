@@ -5,28 +5,6 @@ body {
     padding: 0;
 }
 
-/* Rotation info */
-#rotate-div {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-#rotate-img {
-    position: relative;
-    height: 60%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
-
-@media (orientation: landscape) {
-    #rotate-div { display: none; }
-}
-
 /* Canvas etc */
 #canvas-container {
     position: relative;
@@ -254,23 +232,46 @@ p.version {
     background-color: rgb(228, 228, 228);
 }
 
+/* Rotation info */
+#rotate-div {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#rotate-img {
+    position: relative;
+    height: 60%;
+    top: 50%;
+    left: 50%;
+    max-width: 95%;
+    transform: translate(-50%,-50%);
+}
+
+@media (orientation: landscape) {
+    #rotate-div { display: none; }
+}
+
 
 /* Tweak sizes for small screens */
 @media (max-height: 600px){
     p.version { color: blue; }
 
     img.location {
-        width: 4dvh;
-        height: 4dvh;
-        margin-left: -2dvh;
-        margin-top: -4dvh;
-    }
-
-    img.location:hover{
         width: 6dvh;
         height: 6dvh;
         margin-left: -3dvh;
         margin-top: -6dvh;
+    }
+
+    img.location:hover{
+        width: 7dvh;
+        height: 7dvh;
+        margin-left: -3.5dvh;
+        margin-top: -7dvh;
     }
 
     .popup{ width: 60%; }
