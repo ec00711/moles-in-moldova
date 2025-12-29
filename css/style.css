@@ -119,7 +119,7 @@ img.location:hover{
     transform: translate(-50%,-50%);
     border-radius: 2dvh;
     border: 0.5dvh solid green;
-    background-color: lightgrey;
+    background-color: rgba(211, 211, 211, 0.8);
     margin: 0;
     padding: 0;
     visibility: hidden;
@@ -131,7 +131,7 @@ img.location:hover{
 
 .popup.show {
     visibility: visible;
-    opacity: 60%;
+    opacity: 80%;
 }
 
 p.main-text {
