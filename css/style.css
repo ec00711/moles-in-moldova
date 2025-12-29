@@ -244,9 +244,9 @@ p.version {
 
 #rotate-img {
     position: relative;
-    height: 60%;
     top: 50%;
     left: 50%;
+    max-height: 60%;
     max-width: 95%;
     transform: translate(-50%,-50%);
 }
@@ -275,6 +275,13 @@ p.version {
     }
 
     .popup{ width: 60%; }
+
+    p.main-text {
+        padding-top: 4.5dvh;
+        font-size: 3.5dvh;
+    }
+
+    p.extra-text { font-size: 3.5dvh; }
 
     img.nav-buttons { height: 70%; }
 }
