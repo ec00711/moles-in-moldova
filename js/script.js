@@ -288,3 +288,21 @@ for (let i = 0; i < data_array.length; i++) {
 
     document.getElementById("search-results").appendChild(item);
 };
+
+
+// "First location" button
+function goFirstLocation(){
+    showPopup(null, 0);
+}
+
+var firstButton = document.getElementById("first-location-button");
+firstButton.addEventListener("click", goFirstLocation);
+
+// "Random location" button
+function goRandomLocation(){
+    var ii = Math.floor(Math.random() * data_array.length);
+    showPopup(null, ii);
+}
+
+var randomButton = document.getElementById("random-location-button");
+randomButton.addEventListener("click", goRandomLocation);
