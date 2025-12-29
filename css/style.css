@@ -217,6 +217,24 @@ img.nav-buttons:hover{
 
 #search-results a:hover {background-color: #ddd;}
 
+/* Location buttons */
+img.location-button {
+    height: 5dvw;
+    padding: 2dvw;
+}
+
+#first-location-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#random-location-button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
 /* Version box */
 /* Sizes done in dvh to keep same scaling when we zoom */
 p.version {
