@@ -136,7 +136,7 @@ function filterSearch(){
 
     for (let i = 0; i < aList.length; i++) {
         txtValue = aList[i].textContent || aList[i].innerText;
-        if (filterValue.length > 2 && txtValue.toUpperCase().indexOf(filterValue) > -1) {
+        if (filterValue.length > 1 && txtValue.toUpperCase().indexOf(filterValue) > -1) {
             aList[i].style.display = "block";
         } else {
             aList[i].style.display = "none";
@@ -192,8 +192,8 @@ addLocation("sausage dogs", "Sydney", "E", "2025-07-13", 0.8843, 0.7456);
 addLocation("dwarfs", "Discworld", "F", "2025-07-13", null, null, "disc");
 addLocation("Smash Dosés", "San Jose", "E", "2025-07-14", 0.1962, 0.2266);
 addLocation("piss", "the Pacific", "F", "2025-07-14", 0.1300, 0.7525);
-addLocation("parrots", "the Pacific", "F", "2025-07-15", 0.1600, 0.7227);
-addLocation("T-Rex", "Tunisia", "F", "2025-07-14", 0.5260, 0.2393);
+addLocation("parrots", "the Pacific", "F", "2025-07-14", 0.1600, 0.7227);
+addLocation("T-Rex", "Tunisia", "F", "2025-07-15", 0.5260, 0.2393);
 addLocation("papa bears", "Papua New Guinea", "E", "2025-07-15", 0.9010, 0.5442);
 addLocation("caribou", "Klatch", "F", "2025-07-16", null, null, "disc");
 addLocation("bulldogs", "Bangladesh", "E", "2025-07-16", 0.7421, 0.3284);
