@@ -5,6 +5,28 @@ body {
     padding: 0;
 }
 
+/* Rotation info */
+#rotate-div {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#rotate-img {
+    position: relative;
+    height: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+@media (orientation: landscape) {
+    #rotate-div { display: none; }
+}
+
 /* Canvas etc */
 #canvas-container {
     position: relative;
@@ -35,38 +57,17 @@ img.location {
     cursor: pointer;
     transition-duration: 500ms;
     opacity: 90%;
+    width: 2.5dvh;
+    height: 2.5dvh;
+    margin-left: -1.25dvh;
+    margin-top: -2.5dvh;
 }
 
-@media (orientation: landscape){
-    img.location {
-        width: 2.5dvh;
-        height: 2.5dvh;
-        margin-left: -1.25dvh;
-        margin-top: -2.5dvh;
-    }
-
-    img.location:hover{
-        width: 3.5dvh;
-        height: 3.5dvh;
-        margin-left: -1.75dvh;
-        margin-top: -3.5dvh;
-    }
-}
-
-@media (orientation: portrait){
-    img.location {
-        width: 4dvh;
-        height: 4dvh;
-        margin-left: -2dvh;
-        margin-top: -4dvh;
-    }
-
-    img.location:hover{
-        width: 6dvh;
-        height: 6dvh;
-        margin-left: -3dvh;
-        margin-top: -6dvh;
-    }
+img.location:hover{
+    width: 3.5dvh;
+    height: 3.5dvh;
+    margin-left: -1.75dvh;
+    margin-top: -3.5dvh;
 }
 
 /* Other assets */
@@ -135,7 +136,6 @@ img.location {
 /* Pop up */
 .popup {
     position: absolute;
-    width: 30%;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -147,10 +147,8 @@ img.location {
     visibility: hidden;
     opacity: 0;
     transition: opacity 500ms ease-in, visibility 0ms linear 250ms;
-}
-
-@media (orientation: portrait){
-    .popup{ width: 60%; }
+    
+    width: 30%;
 }
 
 .popup.show {
@@ -177,14 +175,11 @@ p.extra-text {
 
 img.nav-buttons {
     position: fixed;
-    height: 40%;
     padding: 5px;
     transform: translate(-50%,-50%);
     top: 50%;
-}
-
-@media (orientation: portrait){
-    img.nav-buttons { height: 70%; }
+    
+    height: 40%;
 }
 
 img.nav-buttons:hover{
@@ -203,13 +198,13 @@ img.nav-buttons:hover{
 .searchbar {
     position: fixed;
     bottom: 0;
-    left: 35dvw;
-    right: 35dvw;
+    left: 30dvw;
+    right: 30dvw;
 }
 
 .searchbar-items{
     position: relative;
-    width: 30dvw;
+    width: 40dvw;
     background-color: #f6f6f6;
     overflow: auto;
     border: 1px solid #ddd;
@@ -219,13 +214,13 @@ img.nav-buttons:hover{
 #search-icon{
     position: fixed;
     bottom: 0;
-    left: 35dvw;
+    left: 30dvw;
     width: 25px;
     padding: 10px;
 }
 
 #search-input{
-    width: 30dvw;
+    width: 40dvw;
     box-sizing: border-box;
     font-size: 16px;
     padding: 14px 20px 12px 45px;
@@ -257,4 +252,28 @@ p.version {
     font-size: 1.5dvh;
     color: #ababab;
     background-color: rgb(228, 228, 228);
+}
+
+
+/* Tweak sizes for small screens */
+@media (max-height: 600px){
+    p.version { color: blue; }
+
+    img.location {
+        width: 4dvh;
+        height: 4dvh;
+        margin-left: -2dvh;
+        margin-top: -4dvh;
+    }
+
+    img.location:hover{
+        width: 6dvh;
+        height: 6dvh;
+        margin-left: -3dvh;
+        margin-top: -6dvh;
+    }
+
+    .popup{ width: 60%; }
+
+    img.nav-buttons { height: 70%; }
 }
